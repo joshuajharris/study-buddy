@@ -10,10 +10,38 @@
   
   </head>
   <body>
-   
+
+    <div class="page-header">
+      <h1>Study Buddy</h1>
+    </div>
+
+    <div class="container">
+      <form>
+        <input type='text' name='title' id='title' placeholder='Enter a Title'/>
+        <select name='subject'>
+          <option value='Math'>Math</option>
+          <option value='English'>English</option>
+          <option value='Science'>Science</option>
+          <option value='History'>History</option>
+        </select>
+      </form>
+      <button type='submit'></button>
+    </div>
+
+    <table id="events-table">
+      <tbody></tbody>
+    </table>
+
+    <script id="eventTemplate" type="text/template">
+      <h2>
+        <%= event.title %>
+        <small>By <%= event.creator %></small>
+      </h2>
+    </script>
 
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 
     <script src='js/main.js'></script>
