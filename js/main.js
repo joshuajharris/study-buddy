@@ -7,7 +7,7 @@ ref.on("value", function(snapshot) {
   _.each(events, function(event) {
     var template = _.template($('#eventTemplate').html());
     $('#events-table tbody').append(template({event:event}));
-    //addMarker(event.lat, event.lng, event.title);
+    addMarker(event.title, event.lat, event.lng);
   });
 });
 
@@ -21,6 +21,8 @@ $('#event-submit').bind("click", function(){
   event.location = $('#location').val();
   event.numAttending = 1;
   event.maxCapacity = $('#maxCapacity').val();
+  event.desc = $('#desc').val();
+  event.creator = 'RamhacksTester';
  
   var newEvent = ref.push(event);
   ref.child(newEvent.key()).update({id: newEvent.key()});

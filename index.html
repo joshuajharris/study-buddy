@@ -15,7 +15,7 @@
   <body>
     
     <div class="page-header">
-      <h1>Study Buddy</h1>
+      <h1><i class="fa fa-book"></i> Study Buddy</h1>
     </div>
     <div class="container-fluid">
     <div class="container">
@@ -36,6 +36,7 @@
     </div>
     <button id="event-create" class='btn btn-primary' type='button' data-toggle="collapse" data-target="#event-form-wrapper">Create New Session</button>
     <div id="event-form-wrapper" class="collapse">
+      <h2><i class="fa fa-plus"></i> Create New Event</h2>
     <form role="form" id="event-form">
         <div class="form-group">
           <input type='text' name='title' id='title' class="form-control" placeholder='Enter a Title'/>
@@ -45,6 +46,9 @@
         </div>
         <div class="form-group">
           <input type='date' name='dateOf' id='dateOf' class="form-control"/>
+        </div>
+        <div class='form-group'>
+          <input type='time' name='timeOf' id='timeOf' class='form-control'/>
         </div>
         <div class="form-group">
           <select name='subject' id="subject" class="form-control">
@@ -58,24 +62,26 @@
           <label>Max Attendees </label>
           <input type="number" name="maxCapacity" id="maxCapacity"/>
         </div>
+        <div class="form-group">
+          <textarea id="desc" name="desc" class="form-control" placeholder="Enter an event Description"></textarea>
+        </div>
       </form>
     </div>
     </div>
     
-      
-      
   <script id="eventTemplate" type="text/template">
     <tr data-toggle="collapse" data-target="#demo_<%= event.id %>" class="accordion-toggle">
       <td><%= event.title %></td>
       <td><%= event.subject %></td>
-      <td><%= event.dateOf %></td>
+      <td><%= event.dateOf %> <%= event.timeOf %></td>
       <td><%= event.location %></td>
       <td><%= event.numAttending %>/<%= event.maxCapacity %></td>
     </tr>
     <tr>
       <td colspan="6" class="hiddenRow">
         <div class="accordian-body collapse" id="demo_<%= event.id %>">
-          Info
+          <h5><small>Created By </small> <%= event.creator %></h5>
+          <p><%= event.desc %></p>
         </div>
       </td>
     </tr>
