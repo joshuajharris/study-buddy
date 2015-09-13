@@ -15,7 +15,7 @@
   <body>
     
     <div class="page-header">
-      
+
       <h1><img src="FINAL.png" class="logo"></img> Study Buddy</h1>
     </div>
     <div class="container-fluid">
@@ -85,6 +85,8 @@
         <div class="accordian-body collapse" id="demo_<%= event.id %>">
           <h5><small>Created By </small> <%= event.creator %></h5>
           <p><%= event.desc %></p>
+          <button id="join_<%= event.id %>" class="btn btn-primary" onclick="joinEvent(<%= event.id %>)">Join</button>
+          <button id="cancel_<%= event.id %>" class="btn btn-danger" onclick="cancelEvent(<%= event.id %>)">Cancel</button>
         </div>
       </td>
     </tr>

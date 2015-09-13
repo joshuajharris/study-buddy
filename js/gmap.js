@@ -4,14 +4,45 @@ function initMap() {
 
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 16,
-    center: myLatLng
-  });
-/*
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'Hello World!'
-  });*/
+    center: myLatLng,
+    styles: [
+      { 
+        "featureType": "poi.school",
+        "elementType": "geometry.fill",
+        "stylers": [ 
+          { "visibility": "on" }, 
+          { "color": "#febd13" }, 
+          { "weight": 0.1 } 
+        ] 
+      },
+      { "stylers": [ 
+        { "visibility": "on" }, 
+        { "invert_lightness": true } 
+      ] 
+      },{ } ]
+  }
+  );
+
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Location found.');
+      map.setCenter(pos);
+      marker = new google.maps.Marker({
+        position: pos,
+        map: map,
+        title: "You are Here"
+      }); 
+
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  }
 }
 
 function addMarker(lat, lng, title) {

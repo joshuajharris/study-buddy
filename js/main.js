@@ -11,6 +11,22 @@ ref.on("value", function(snapshot) {
   });
 });
 
+function joinEvent(id) {
+  var event = ref.child(id);
+  event.child("numAttending").once("value", function(snapshot) {
+    var numAttending = parseInt(snapshot.val());
+    ref.child(id).update({ numAttending: numAttending + 1});
+  });
+}
+
+function cancelEvent(id) {
+  var event = ref.child(id);
+  event.child("numAttending").once("value", function(snapshot) {
+    var numAttending = parseInt(snapshot.val());
+    ref.child(id).update({ numAttending: numAttending - 1});
+  });
+}
+
 $('#event-submit').bind("click", function(){
 
   var event = {};
