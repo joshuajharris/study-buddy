@@ -4,20 +4,12 @@ html, body {
   padding: 0;
 }
 
-#logo{
+.logo{
   width: 10%;
-}
-#map {
-  height: 100%;
 }
 
 .hiddenRow {
     padding: 0 !important;
-}
-
-body {
-  /*background: #FF5897;*/
-  
 }
 
 .wrapper{
@@ -33,4 +25,11 @@ body {
 #map{
   width: 70%;
   margin: 0 auto;
+  height: 100%;
+}
+
+.buttonDiv{
+  float: right;
+  width: 25%;
+  text-align: left;
 }
