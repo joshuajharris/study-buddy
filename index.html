@@ -13,7 +13,7 @@
   <body>
 
     <div class="page-header">
-      <h1>Study Buddy</h1>
+      <h1><i class="fa fa-book"></i> Study Buddy</h1>
     </div>
 
     <div class="container">
@@ -38,6 +38,9 @@
         <div class="form-group">
           <label>Max Attendees </label>
           <input type="number" name="maxCapacity" id="maxCapacity"/>
+        </div>
+        <div class="form-group">
+          <textarea id="desc" name="desc" class="form-control" placeholder="Enter an event Description"></textarea>
         </div>
       </form>
       <button id="event-submit" class='btn btn-primary' type='submit'>Post Session</button>
@@ -69,7 +72,8 @@
     <tr>
       <td colspan="6" class="hiddenRow">
         <div class="accordian-body collapse" id="demo_<%= event.id %>">
-          Info
+          <h5><small>Created By </small> <%= event.creator %></h5>
+          <p><%= event.desc %></p>
         </div>
       </td>
     </tr>

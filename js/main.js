@@ -21,6 +21,7 @@ $('#event-submit').bind("click", function(){
   event.location = $('#location').val();
   event.numAttending = 1;
   event.maxCapacity = $('#maxCapacity').val();
+  event.desc = $('#desc').val();
  
   var newEvent = ref.push(event);
   ref.child(newEvent.key()).update({id: newEvent.key()});
