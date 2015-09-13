@@ -19,8 +19,24 @@
     </div>
     <div class="container-fluid">
     <div class="container">
-    <div class="wrapper">
-      <form role="form" id="event-form">
+    
+  <div class="wide">
+  <table id="events-table" class="table table-condensed" style="border-collapse:collapse;">
+      <thead>
+          <tr>
+              <th>Title</th>
+              <th>Subject</th>
+              <th>Time</th>
+              <th>Location</th>
+              <th># of people</th>
+          </tr>
+      </thead>
+      <tbody></tbody>
+  </table>
+    </div>
+    <button id="event-create" class='btn btn-primary' type='button' data-toggle="collapse" data-target="#event-form-wrapper">Create New Session</button>
+    <div id="event-form-wrapper" class="collapse">
+    <form role="form" id="event-form">
         <div class="form-group">
           <input type='text' name='title' id='title' class="form-control" placeholder='Enter a Title'/>
         </div>
@@ -43,26 +59,11 @@
           <input type="number" name="maxCapacity" id="maxCapacity"/>
         </div>
       </form>
-      <button id="event-submit" class='btn btn-primary' type='submit'>Post Session</button>
     </div>
     </div>
     
-  <table id="events-table" class="table table-condensed" style="border-collapse:collapse;">
-      <thead>
-          <tr>
-              <th>Title</th>
-              <th>Subject</th>
-              <th>Time</th>
-              <th>Location</th>
-              <th># of people</th>
-          </tr>
-      </thead>
-      <tbody></tbody>
-  </table>
-  
-    
-
-
+      
+      
   <script id="eventTemplate" type="text/template">
     <tr data-toggle="collapse" data-target="#demo_<%= event.id %>" class="accordion-toggle">
       <td><%= event.title %></td>
