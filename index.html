@@ -20,6 +20,7 @@
     <div class="container-fluid">
     <div class="container">
     <div class="wrapper">
+      <h2>Create a Session</h2>
       <form role="form" id="event-form">
         <div class="form-group">
           <input type='text' name='title' id='title' class="form-control" placeholder='Enter a Title'/>
@@ -29,6 +30,9 @@
         </div>
         <div class="form-group">
           <input type='date' name='dateOf' id='dateOf' class="form-control"/>
+        </div>
+        <div class='form-group'>
+          <input type='time' name='timeOf' id='timeOf' class='form-control'/>
         </div>
         <div class="form-group">
           <select name='subject' id="subject" class="form-control">
@@ -55,7 +59,7 @@
           <tr>
               <th>Title</th>
               <th>Subject</th>
-              <th>Time</th>
+              <th>DateTime</th>
               <th>Location</th>
               <th># of people</th>
           </tr>
@@ -70,7 +74,7 @@
     <tr data-toggle="collapse" data-target="#demo_<%= event.id %>" class="accordion-toggle">
       <td><%= event.title %></td>
       <td><%= event.subject %></td>
-      <td><%= event.dateOf %></td>
+      <td><%= event.dateOf %> <%= event.timeOf %></td>
       <td><%= event.location %></td>
       <td><%= event.numAttending %>/<%= event.maxCapacity %></td>
     </tr>

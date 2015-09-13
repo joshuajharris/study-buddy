@@ -14,7 +14,6 @@ function initMap() {
   });*/
 }
 
-var markers = [];
 function addMarker(lat, lng, title) {
   marker = new google.maps.Marker({
     position: {lat: lat, lng: lng},
