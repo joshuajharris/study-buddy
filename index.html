@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">  
     <title>Study Buddy</title>
     <!-- Hosted Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
@@ -10,13 +11,15 @@
     <!-- Local Styles -->
     <link rel='stylesheet' href='css/style.css'/>
   </head>
-  <body>
 
+  <body>
+    
     <div class="page-header">
       <h1><i class="fa fa-book"></i> Study Buddy</h1>
     </div>
-
+    <div class="container-fluid">
     <div class="container">
+    <div class="wrapper">
       <form role="form" id="event-form">
         <div class="form-group">
           <input type='text' name='title' id='title' class="form-control" placeholder='Enter a Title'/>
@@ -45,7 +48,8 @@
       </form>
       <button id="event-submit" class='btn btn-primary' type='submit'>Post Session</button>
     </div>
-
+    </div>
+    
   <table id="events-table" class="table table-condensed" style="border-collapse:collapse;">
       <thead>
           <tr>
@@ -58,8 +62,9 @@
       </thead>
       <tbody></tbody>
   </table>
+  
+    
 
-  <div id="map"></div>
 
   <script id="eventTemplate" type="text/template">
     <tr data-toggle="collapse" data-target="#demo_<%= event.id %>" class="accordion-toggle">
@@ -78,7 +83,11 @@
       </td>
     </tr>
   </script>
+  </div>  
+  <br></br>
 
+    <div id="map"></div>  
+  
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>

@@ -11,3 +11,23 @@ html, body {
 .hiddenRow {
     padding: 0 !important;
 }
+
+body {
+  /*background: #FF5897;*/
+  
+}
+
+.wrapper{
+  width: 50%;
+  margin: 0 auto;
+}
+
+#events-table{
+  width: 50%;
+  margin: 0 auto;
+}
+
+#map{
+  width: 70%;
+  margin: 0 auto;
+}
