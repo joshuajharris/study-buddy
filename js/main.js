@@ -7,5 +7,23 @@ ref.on("value", function(snapshot) {
   _.each(events, function(event) {
     var template = _.template($('#eventTemplate').html());
     $('#events-table tbody').append(template({event:event}));
+    //addMarker(event.lat, event.lng, event.title);
   });
+});
+
+$('#event-submit').bind("click", function(){
+
+  var event = {};
+
+  event.title = $('#title').val();
+  event.subject = $('#subject').val();
+  event.dateOf = $('#dateOf').val();
+  event.location = $('#location').val();
+  event.numAttending = 1;
+  event.maxCapacity = $('#maxCapacity').val();
+ 
+  var newEvent = ref.push(event);
+  ref.child(newEvent.key()).update({id: newEvent.key()});
+
+  return false;
 });

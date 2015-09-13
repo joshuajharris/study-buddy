@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
+    <title>Study Buddy</title>
     <!-- Hosted Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
 
     <!-- Local Styles -->
     <link rel='stylesheet' href='css/style.css'/>
-     
   </head>
   <body>
 
@@ -16,72 +17,69 @@
     </div>
 
     <div class="container">
-      <form>
-        <input type='text' name='title' id='title' placeholder='Enter a Title'/>
-        <select name='subject'>
-          <option value='Math'>Math</option>
-          <option value='English'>English</option>
-          <option value='Science'>Science</option>
-          <option value='History'>History</option>
-        </select>
+      <form role="form" id="event-form">
+        <div class="form-group">
+          <input type='text' name='title' id='title' class="form-control" placeholder='Enter a Title'/>
+        </div>
+        <div class="form-group">
+          <input type='text' name='location' id='location' class="form-control" placeholder='Enter the Location'/>
+        </div>
+        <div class="form-group">
+          <input type='date' name='dateOf' id='dateOf' class="form-control"/>
+        </div>
+        <div class="form-group">
+          <select name='subject' id="subject" class="form-control">
+            <option value='Math'>Math</option>
+            <option value='English'>English</option>
+            <option value='Science'>Science</option>
+            <option value='History'>History</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Max Attendees </label>
+          <input type="number" name="maxCapacity" id="maxCapacity"/>
+        </div>
       </form>
-      <button class='btn btn-primary' type='submit'>Post Session</button>
+      <button id="event-submit" class='btn btn-primary' type='submit'>Post Session</button>
     </div>
 
-<table class="table table-condensed" style="border-collapse:collapse;">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Subject</th>
-            <th>Location</th>
-            <th>Time</th>
-            <th># of people</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
-            <td>1</td>
-            <td>05 May 2013</td>
-            <td>Credit Account</td>
-            <td class="text-success">$150.00</td>
-            <td class="text-success">$150.00</td>
-        </tr>
-        <tr >
-            <td colspan="6" class="hiddenRow"><div class="accordian-body collapse" id="demo1"> Demo1 </div> </td>
-        </tr>
-        <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
-            <td>2</td>
-            <td>05 May 2013</td>
-            <td>Credit Account</td>
-            <td class="text-success">$11.00</td>
-            <td class="text-success">$161.00</td>
-        </tr>
-        <tr>
-            <td colspan="6" class="hiddenRow"><div id="demo2" class="accordian-body collapse">Demo2</div></td>
-        </tr>
-        <tr data-toggle="collapse" data-target="#demo3" class="accordion-toggle">
-            <td>3</td>
-            <td>05 May 2013</td>
-            <td>Credit Account</td>
-            <td class="text-success">$500.00</td>
-            <td class="text-success">$661.00</td>
-        </tr>
-        <tr>
-            <td colspan="6"  class="hiddenRow"><div id="demo3" class="accordian-body collapse">Demo3</div></td>
-        </tr>
-    </tbody>
-</table>
+  <table id="events-table" class="table table-condensed" style="border-collapse:collapse;">
+      <thead>
+          <tr>
+              <th>Title</th>
+              <th>Subject</th>
+              <th>Time</th>
+              <th>Location</th>
+              <th># of people</th>
+          </tr>
+      </thead>
+      <tbody></tbody>
+  </table>
 
-    <script id="eventTemplate" type="text/template">
-      <h2>
-        <%= event.title %>
-        <small>By <%= event.creator %></small>
-      </h2>
-    </script>
+  <div id="map"></div>
+
+  <script id="eventTemplate" type="text/template">
+    <tr data-toggle="collapse" data-target="#demo_<%= event.id %>" class="accordion-toggle">
+      <td><%= event.title %></td>
+      <td><%= event.subject %></td>
+      <td><%= event.dateOf %></td>
+      <td><%= event.location %></td>
+      <td><%= event.numAttending %>/<%= event.maxCapacity %></td>
+    </tr>
+    <tr>
+      <td colspan="6" class="hiddenRow">
+        <div class="accordian-body collapse" id="demo_<%= event.id %>">
+          Info
+        </div>
+      </td>
+    </tr>
+  </script>
 
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
+    <script src='js/gmap.js'></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3dsHJ-siJp-FvHQxL9sW0r2xkXYa82OM&signed_in=true&callback=initMap"></script>
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 
     <script src='js/main.js'></script>
